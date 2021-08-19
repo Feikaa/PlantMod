@@ -9,7 +9,8 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item WHITE_BERRIES = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 20, 4), 1f).build()));
+    // Berries Items
+    public static final BlockItem WHITE_BERRIES = new BlockItem(ModBlocks.WHITE_BERRY_BUSH, new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 20, 4), 1f).build()));
     public static final Item YELLOW_BERRIES = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 20, 4), 1f).build()));
     public static final Item PURPLE_BERRIES = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
     public static final Item BLUE_BERRIES = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));

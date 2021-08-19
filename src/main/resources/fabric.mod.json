@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.feika.plantmod.PlantMod"
+    ],
+    "client": [
+      "com.feika.plantmod.PlantModClient"
     ]
   },
   "mixins": [
