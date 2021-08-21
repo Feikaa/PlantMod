@@ -19,9 +19,6 @@ import javax.swing.text.html.BlockView;
 
 public class RedBerryBush extends SweetBerryBushBlock {
 
-    private static final VoxelShape SMALL_SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D);
-    private static final VoxelShape LARGE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
-
     public RedBerryBush() {
         super(FabricBlockSettings.of(Material.PLANT)
                 .breakByHand(true)
@@ -29,11 +26,6 @@ public class RedBerryBush extends SweetBerryBushBlock {
                 .noCollision()
                 .nonOpaque()
                 .ticksRandomly());
-    }
-
-    @Override
-    public ItemStack getPickStack(net.minecraft.world.BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(this);
     }
 
     @Override
@@ -50,14 +42,6 @@ public class RedBerryBush extends SweetBerryBushBlock {
             return ActionResult.success(world.isClient);
         } else {
             return super.onUse(state, world, pos, player, hand, hit);
-        }
-    }
-
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(AGE) == 0) {
-            return SMALL_SHAPE;
-        } else {
-            return LARGE_SHAPE;
         }
     }
 }
