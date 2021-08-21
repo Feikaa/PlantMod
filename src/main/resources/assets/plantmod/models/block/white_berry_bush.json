@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "plantmod:blocks/white_berry_bush"
-  }
-}
