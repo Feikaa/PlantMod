@@ -6,5 +6,7 @@
   "item.plantmod.red_berries": "Red Berries",
   "item.plantmod.mushroom_normal": "Mushroom",
   "item.plantmod.mushroom_speed": "Mushroom",
-  "item.plantmod.mushroom_high": "Mushroom"
+  "item.plantmod.mushroom_high": "Mushroom",
+  "item.plantmod.mushroom_hallucination": "Mushroom",
+  "effect.plantmod.hallucination": "Hallucination"
 }

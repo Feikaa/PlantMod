@@ -1,5 +1,6 @@
-package com.feika.plantmod;
+package com.feika.plantmod.registry;
 
+import com.feika.plantmod.PlantMod;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -27,6 +28,8 @@ public class ModItems {
     public static final Item MUSHROOM_HIGH = new AliasedBlockItem(ModBlocks.MUSHROOM_HIGH_BLOCK, new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(6).saturationModifier(0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20*15, 0), 1f)
             .statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20*15, 0), 1f).build()));
+    public static final Item MUSHROOM_HALL = new AliasedBlockItem(ModBlocks.MUSHROOM_HALL_BLOCK, new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(6).saturationModifier(0f)
+            .statusEffect(new StatusEffectInstance(PlantMod.HALLUCINATION, 20*60, 0, false, false), 1f).build()));
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "white_berries"), WHITE_BERRIES);
@@ -37,6 +40,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "mushroom_normal"), MUSHROOM_NORMAL);
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "mushroom_speed"), MUSHROOM_SPEED);
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "mushroom_high"), MUSHROOM_HIGH);
+        Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "mushroom_hallucination"), MUSHROOM_HALL);
 
     }
 

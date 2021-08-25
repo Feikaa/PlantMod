@@ -1,5 +1,6 @@
 package com.feika.plantmod;
 
+import com.feika.plantmod.registry.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +13,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
-
-import javax.swing.text.html.BlockView;
 
 public class PurpleBerryBush extends SweetBerryBushBlock {
 
