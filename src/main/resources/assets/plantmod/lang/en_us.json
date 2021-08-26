@@ -8,5 +8,8 @@
   "item.plantmod.mushroom_speed": "Mushroom",
   "item.plantmod.mushroom_high": "Mushroom",
   "item.plantmod.mushroom_hallucination": "Mushroom",
+  "item.plantmod.mushroom_relax": "Mushroom",
+  "item.plantmod.mushroom_rage": "Mushroom",
+  "item.plantmod.cactus_flesh": "Cactus Flesh",
   "effect.plantmod.hallucination": "Hallucination"
 }

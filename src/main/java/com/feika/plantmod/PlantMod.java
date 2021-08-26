@@ -54,11 +54,9 @@ public class PlantMod implements ModInitializer {
         generateMushrooms("minecraft:sunflower_plains,minecraft:flower_forest", ModBlocks.MUSHROOM_SPEED_BLOCK, 16, "speed_mushroom");
         generateMushrooms("minecraft:wooded_hills,minecraft:birch_forest_hills", ModBlocks.MUSHROOM_NORMAL_BLOCK, 16, "normal_mushroom");
         generateMushrooms("minecraft:dark_forest,minecraft:dark_forest_hills",ModBlocks.MUSHROOM_HALL_BLOCK, 16, "hallucination_mushroom");
+        generateMushrooms("minecraft:mountains,minecraft:giant_tree_taiga",ModBlocks.MUSHROOM_RELAX_BLOCK, 16, "relax_mushroom");
+        generateMushrooms("minecraft:plains,minecraft:badlands",ModBlocks.MUSHROOM_RAGE_BLOCK, 16, "rage_mushroom");
 
-//        RegistryKey<ConfiguredFeature<?, ?>> highMushroom = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "high_mushroom"));
-//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, highMushroom.getValue(), HIGH_MUSHROOM_OVERWORLD);
-//
-//        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegistryKey.of(Registry.BIOME_KEY, new Identifier("minecraft:plains"))), GenerationStep.Feature.VEGETAL_DECORATION, highMushroom);
     }
 
     // Places fully grown berry bushes in specified biomes

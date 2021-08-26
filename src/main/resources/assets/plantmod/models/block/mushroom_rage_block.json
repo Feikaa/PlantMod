@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "plantmod:blocks/mushroom_rage_block"
+  }
+}
