@@ -77,7 +77,7 @@ public class PlantMod implements ModInitializer {
                         Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
                         world.playSound((PlayerEntity) null, hitResult.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
                         world.setBlockState(hitResult.getBlockPos(), (BlockState) ModBlocks.SHAVED_CACTUS.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                        ItemEntity itemEntity = new ItemEntity(world, (double) hitResult.getBlockPos().getX() + 0.5D + (double) direction2.getOffsetX() * 0.65D, (double) hitResult.getBlockPos().getY() + 0.1D, (double) hitResult.getBlockPos().getZ() + 0.5D + (double) direction2.getOffsetZ() * 0.65D, new ItemStack(ModItems.CACTUS_NEEDLES, 2));
+                        ItemEntity itemEntity = new ItemEntity(world, (double) hitResult.getBlockPos().getX() + 0.5D + (double) direction2.getOffsetX() * 0.65D, (double) hitResult.getBlockPos().getY() + 0.1D, (double) hitResult.getBlockPos().getZ() + 0.5D + (double) direction2.getOffsetZ() * 0.65D, new ItemStack(ModItems.CACTUS_SPINES, 2));
                         itemEntity.setVelocity(0.05D * (double) direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
                         world.spawnEntity(itemEntity);
                         itemStack.damage(1, (LivingEntity) player, (Consumer<LivingEntity>) ((playerx) -> {
