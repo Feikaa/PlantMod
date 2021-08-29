@@ -12,6 +12,7 @@ public class ModItems {
     // Shaved Cactus
     public static final Item SHAVED_CACTUS_BLOCK = new AliasedBlockItem(ModBlocks.SHAVED_CACTUS, new Item.Settings().group(ItemGroup.DECORATIONS));
     public static final Item CACTUS_SPINES = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item CACTUS_ARROWHEAD = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Item CACTUS_FLESH = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.5f)
             .build()));
     public static final Item COOKED_CACTUS_FLESH = new Item(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(4).saturationModifier(2f)
@@ -86,6 +87,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "cooked_cactus_flesh"), COOKED_CACTUS_FLESH);
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "shaved_cactus"), SHAVED_CACTUS_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "cactus_spines"), CACTUS_SPINES);
+        Registry.register(Registry.ITEM, new Identifier(PlantMod.MOD_ID, "cactus_arrowhead"), CACTUS_ARROWHEAD);
 
     }
 
