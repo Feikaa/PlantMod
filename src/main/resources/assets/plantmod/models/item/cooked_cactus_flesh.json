@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "plantmod:items/cooked_cactus_flesh"
+  }
+}

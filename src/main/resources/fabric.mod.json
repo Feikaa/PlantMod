@@ -26,6 +26,7 @@
     ]
   },
   "mixins": [
+    "plantmod.mixins.json"
   ],
 
   "depends": {

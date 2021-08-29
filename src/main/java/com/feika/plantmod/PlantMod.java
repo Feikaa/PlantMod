@@ -9,22 +9,31 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.block.*;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class PlantMod implements ModInitializer {
@@ -56,6 +65,37 @@ public class PlantMod implements ModInitializer {
         generateMushrooms("minecraft:dark_forest,minecraft:dark_forest_hills",ModBlocks.MUSHROOM_HALL_BLOCK, 16, "hallucination_mushroom");
         generateMushrooms("minecraft:mountains,minecraft:giant_tree_taiga",ModBlocks.MUSHROOM_RELAX_BLOCK, 16, "relax_mushroom");
         generateMushrooms("minecraft:plains,minecraft:badlands",ModBlocks.MUSHROOM_RAGE_BLOCK, 16, "rage_mushroom");
+
+        // Listen Event when player shears cactus block
+        UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
+            BlockState state = world.getBlockState(hitResult.getBlockPos());
+            if (state.isOf(Blocks.CACTUS)) {
+                ItemStack itemStack = player.getStackInHand(hand);
+                if (itemStack.isOf(Items.SHEARS)) {
+                    if (!world.isClient) {
+                        Direction direction = hitResult.getSide();
+                        Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
+                        world.playSound((PlayerEntity) null, hitResult.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                        world.setBlockState(hitResult.getBlockPos(), (BlockState) ModBlocks.SHAVED_CACTUS.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+                        ItemEntity itemEntity = new ItemEntity(world, (double) hitResult.getBlockPos().getX() + 0.5D + (double) direction2.getOffsetX() * 0.65D, (double) hitResult.getBlockPos().getY() + 0.1D, (double) hitResult.getBlockPos().getZ() + 0.5D + (double) direction2.getOffsetZ() * 0.65D, new ItemStack(ModItems.CACTUS_NEEDLES, 2));
+                        itemEntity.setVelocity(0.05D * (double) direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
+                        world.spawnEntity(itemEntity);
+                        itemStack.damage(1, (LivingEntity) player, (Consumer<LivingEntity>) ((playerx) -> {
+                            playerx.sendToolBreakStatus(hand);
+                        }));
+                        world.emitGameEvent(player, GameEvent.SHEAR, hitResult.getBlockPos());
+                        player.incrementStat(Stats.USED.getOrCreateStat(Items.SHEARS));
+                    }
+
+                    return ActionResult.success(world.isClient);
+                } else {
+                    return ActionResult.PASS;
+                }
+            }
+            else {
+                return ActionResult.PASS;
+            }
+        }));
 
     }
 

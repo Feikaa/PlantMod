@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:cactus"
+      "item": "plantmod:shaved_cactus"
     }
   ],
   "result": {
     "item": "plantmod:cactus_flesh",
-    "count": 1
+    "count": 2
   }
 }

@@ -10,6 +10,9 @@ import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class ModBlocks {
 
+    // Shaved Cactus
+    public static final Block SHAVED_CACTUS = new ShavedCactusBlock(AbstractBlock.Settings.of(Material.CACTUS).ticksRandomly().strength(0.4F).sounds(BlockSoundGroup.WOOL));
+
     // Berry bushes
     public static final Block WHITE_BERRY_BUSH = new WhiteBerryBush();
     public static final Block YELLOW_BERRY_BUSH = new YellowBerryBush();
@@ -43,5 +46,6 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(PlantMod.MOD_ID, "mushroom_hallucination_block"), MUSHROOM_HALL_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(PlantMod.MOD_ID, "mushroom_relax_block"), MUSHROOM_RELAX_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(PlantMod.MOD_ID, "mushroom_rage_block"), MUSHROOM_RAGE_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(PlantMod.MOD_ID, "shaved_cactus"), SHAVED_CACTUS);
     }
 }

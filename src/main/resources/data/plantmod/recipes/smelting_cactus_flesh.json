@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "plantmod:cactus_flesh"
+  },
+  "result": "plantmod:cooked_cactus_flesh",
+  "experience": 0.1,
+  "cookingtime": 200
+}
