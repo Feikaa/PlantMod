@@ -41,7 +41,7 @@ public class PlantMod implements ModInitializer {
     // Mod ID
     public static final String MOD_ID = "plantmod";
 
-    public static ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(ModItems.WHITE_BERRIES));
+    // public static ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(ModItems.WHITE_BERRIES));
 
     public static final StatusEffect HALLUCINATION = new HallucinationEffect();
 
